@@ -552,6 +552,13 @@ section,
   justify-content: center;
 }
 
+.hero:before {
+  content: ""; /* No overlay or background color */
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 .hero img {
   position: absolute;
   inset: 0;
@@ -611,12 +618,26 @@ section,
 
 @media (max-width: 768px) {
   .hero h2 {
-    font-size: 32px;
+    font-size: 24px;
+    font-weight: bold;
   }
 
   .hero p {
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+    margin-right: -400px;
+    font-weight: bold;
   }
+
+  .hero img {
+    object-fit: contain; /* Ensures no cropping on very small screens */
+  }
+
+  .hero {
+    min-height: calc(0vh - 0px); /* Adjust if black space is at the top or bottom */
+    height: auto; /* Use content height as fallback */
+  }
+
 }
 
 /*--------------------------------------------------------------
